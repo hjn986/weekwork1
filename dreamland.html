@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>周测 试炼：斑斓界——流光梦境</title>
+    <style>
+        .div1{
+            float:left;
+            width:50px;
+            line-heiight:30px;
+            background-color: lightgray;
+            margin-left:10px;
+            text-align:center;
+            vertical-align: middle;
+        }
+        .div2{
+            width:300px;
+            height:300px;
+            border:solid gray 1px;
+            margin-top:60px;
+            color:red;
+        }
+        .div2Blue{
+            background-color: blue;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<h2>请选择背景颜色</h2>
+<div>
+    <div id="blue" class="div1">蓝色</div>
+    <div id="green" class="div1">绿色</div>
+
+</div>
+<div class="div2" id="bg"></div>
+<div>输入颜色首字母： <input type="text" name="color"></div>
+
+</body>
+
+<script src="../js/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+    alert("欢迎来到斑斓界——流光梦境，请选择自己喜欢的模式")
+    //当点击名为蓝色的div，下面的div背景色变为蓝色，并设置文字内容为"蓝色背景"
+    $("#blue").click(function(){
+        //先删除
+        $("div.div2").removeAttr("style");
+        $("#bg").css("background-color","blue");
+        $("#bg").text("蓝色背景");
+    })
+
+    //当点击名为绿色的div时，下面的div背景色变为绿色，并将文字设置成“绿色背景”，并设置字体为加粗斜体
+    $("#green").click(function(){
+        //先删除之前的样式
+        $("div.div2").removeAttr("style");
+        $("#bg").css({"background-color":"green","font-style":"italic","font-weight":"bold"});
+        $("#bg").text("绿色背景");
+    })
+
+    $("input[name='color']").keypress(function(event){
+        if(event.keyCode == 66){
+            $("#bg").empty();
+            $("#bg").css("background-color","blue");
+        }else if(event.keyCode == 71){
+            $("#bg").empty();
+            $("#bg").css("background-color","green");
+        }
+
+    })
+</script>
+</html>
